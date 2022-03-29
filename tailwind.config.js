@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./{views,tailwind}/**/*.{html,css}"],
+  content: ["./{views,tailwind}/**/*.{ejs,css}"],
   theme: {
     extend: {},
   },

@@ -1,15 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?- include('../partials/head', {title: "Home", css: "/login.css"}); ?>
+    <?- include('../partials/head', {title: "Home"}); ?>
 </head>
 <body>
     <?- include('../partials/nav'); ?>
+    <main>
+        <div class="userCards flex items-center justify-center flex-col">
+            <? if(typeof users !== undefined) {
+
+                users.forEach((user) => { ?>
 
 
-
-
-
+            
+                <div class="userCard p-4 bg-indigo-400 rounded first-letter:text-pink-800 flex justify-between py-4 px-6 items-center max-w-md">
+                    <p class="name text-gray-100">
+                        <?= user.username ?>  
+                         
+                        <br>
+                        <small class='text-gray-300'><?= user.email ?></small>
+                    </p>
+                    <div class="buttons ml-20">
+                        <a href="/user/<?= user._id ?>" class='py-1 px-4 rounded bg-pink-600 text-pink-200'>View</a>
+                    </div>
+                </div>
+            <?  })  } else {?>
+                <h1>No users found.</h1>
+            <? }?>
+        </div>
+        
+    </main>
 
     <?- include('../partials/footer'); ?>
 </body>

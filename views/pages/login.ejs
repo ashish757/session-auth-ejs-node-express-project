@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?- include('../partials/head', {title: "Home"}); ?>
+</head>
+<body>
+    <?- include('../partials/nav'); ?>
+    <main class='flex items-center justify-center'> 
+        <form id='signinForm'>
+            <input type="text" name='username' placeholder='Username'>
+            <input type="text" name='password' placeholder='Password'>
+            <button>Submit</button>
+
+        </form>
+        
+    </main>
+
+    <script>
+        const signinForm = document.querySelector("#signinForm")
+
+        signinForm.addEventListener("submit", (e) => {
+            e.preventDefault()
+            console.log(signinForm.password.value);
+
+            fetch("http://localhost:8000/auth/signin", {
+                method: "POST",
+                headers: {
+                    "content-type": 'application/json',
+                },
+                body: JSON.stringify({
+                    username: signinForm.username.value,
+                    password: signinForm.password.value
+                })
+            }).then(res => res.json()).then(res => console.log(res))
+        })
+
+        
+    </script>
+
+    <?- include('../partials/footer'); ?>
+</body>
+</html>

@@ -1,8 +1,12 @@
-<nav>
+<nav class='flex items-center justify-center'>
     <ul>
         <li><a href="/">HOME</a></li>
-        <li><a href="/">SIGN IN</a></li>
-        <li><a href="/">SIGN UP</a></li>
+
+        <? if(auth) { ?> 
+            <li><button id='logoutBtn'>SIGN OUT</button></li>
+        <? } else {?>
+            <li><a href="/auth/signin">SIGN IN</a></li>
+            <li><a href="/auth/signup">SIGN UP</a></li>
+        <? } ?>
     </ul>
-    <button>LOGOUT</button>
 </nav>
