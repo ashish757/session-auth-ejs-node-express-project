@@ -16,7 +16,7 @@ const corsOptions = {
     allowedHeaders: 'content-type',
     credentials: true
 }
-const dbURI = "mongodb+srv://ashish757:<pass]>@cluster0.sx5d0.mongodb.net/session-auth?retryWrites=true&w=majority"
+const dbURI = "mongodb+srv://ashish757:<pass>@cluster0.sx5d0.mongodb.net/session-auth?retryWrites=true&w=majority"
 
 mongoose.connect(dbURI)
     .then(result => app.listen(8000, () => console.log("lisining on 8000")))
